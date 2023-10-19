@@ -6,6 +6,7 @@ const { PORT, DB_URL } = require("./constants");
 const routes = require("./router");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const {auth} = require("./middlewares/authMiddleware");
 
 // -- Express configuration
 // Да зареди CSS
@@ -14,7 +15,8 @@ app.use(express.static(path.resolve(__dirname, "./public")));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-
+//Authentication задължително е да е под куки парсара 
+app.use(auth);
 //--
 
 // -- Handlebarse configuration
