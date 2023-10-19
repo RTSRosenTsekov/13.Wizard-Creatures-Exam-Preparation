@@ -3,15 +3,15 @@ const bcrypt = require("bcrypt");
 
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, require: true },
-  lastName: { type: String, require: true },
-   email: { type: String, require: true, 
-    unique: {
-    value:true,
-    message:"Email already exists!FROM SCHEMA",
-  } 
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+   email: { type: String, required: true, 
+  //   unique: {
+  //   value:true,
+  //   message:"Email already exists!FROM SCHEMA",
+  // } 
   },
-  password: { type: String, require: true },
+  password: { type: String, required: true },
 });
 
 // Валидация на имейла 
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
 // }, "Email already exists!");
 
 // Проверяваме дали паролата и повторената парола са еднакви
-userSchema.virtual("repeatPassword").set(function name(value) {
+userSchema.virtual("repeatPassword").set(function (value) {
   
   if(value!==this.password){
     throw new Error("Password missmatch!");
