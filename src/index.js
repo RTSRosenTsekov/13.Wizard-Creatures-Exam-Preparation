@@ -5,12 +5,16 @@ const app = express();
 const { PORT, DB_URL } = require("./constants");
 const routes = require("./router");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 // -- Express configuration
 // Да зареди CSS
 app.use(express.static(path.resolve(__dirname, "./public")));
 // Да може да четем данни от body
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+
 //--
 
 // -- Handlebarse configuration

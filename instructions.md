@@ -5,3 +5,4 @@
 5. npm i mongoose
 6. npm i bcrypt - hash pasword
 7. npm i jsonwebtoken
+8. npm i cookie-parser
